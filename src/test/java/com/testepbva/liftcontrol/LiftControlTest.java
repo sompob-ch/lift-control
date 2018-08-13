@@ -12,7 +12,7 @@ public class LiftControlTest {
     public Integer top = 10;
 
     @Test
-    public void testListControlCaseListStatusOverLimitWeightIsStatusPause(){
+    public void testLiftControlCaseListStatusOverLimitWeightShouldStop(){
         LiftControl liftControl = new LiftControl();
         Integer overWeight = 1500;
         String result = liftControl.start(limitWeight,overWeight,0,0);
@@ -20,70 +20,70 @@ public class LiftControlTest {
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGToFloorTop(){
+    public void testLiftControlCaseMoveFromFloorGToFloorTopShouldUp(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g,top);
         assertEquals(result,"Up");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGToFloorGPlusOne(){
+    public void testLiftControlCaseMoveFromFloorGToFloorGPlusOneShouldUp(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g,g+1);
         assertEquals(result,"Up");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGToFloorTopRemoveOne(){
+    public void testLiftControlCaseMoveFromFloorGToFloorTopRemoveOneShouldUp(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g,top-1);
         assertEquals(result,"Up");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGPlusOneToFloorTop(){
+    public void testLiftControlCaseMoveFromFloorGPlusOneToFloorTopShouldUp(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g+1,top);
         assertEquals(result,"Up");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGPlusOneToFloorTopRemoveOne(){
+    public void testLiftControlCaseMoveFromFloorGPlusOneToFloorTopRemoveOneShouldUp(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g+1,top-1);
         assertEquals(result,"Up");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGPlusOneToFloorG(){
+    public void testLiftControlCaseMoveFromFloorGPlusOneToFloorGShouldDown(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g+1,g);
         assertEquals(result,"Down");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorGPlusOneToFloorGPlusOne(){
+    public void testLiftControlCaseMoveFromFloorGPlusOneToFloorGPlusOneShouldStop(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,g+1,g+1);
         assertEquals(result,"Stop");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorTopToFloorG(){
+    public void testLiftControlCaseMoveFromFloorTopToFloorGShouldDown(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,top,g);
         assertEquals(result,"Down");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorTopToFloorGPlusOne(){
+    public void testLiftControlCaseMoveFromFloorTopToFloorGPlusOneShouldDown(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,top,g+1);
         assertEquals(result,"Down");
     }
 
     @Test
-    public void testListControlCaseMoveFromFloorTopToFloorTopRemoveOne(){
+    public void testLiftControlCaseMoveFromFloorTopToFloorTopRemoveOneShouldDown(){
         LiftControl liftControl = new LiftControl();
         String result = liftControl.start(limitWeight,currentWeight,top,top-1);
         assertEquals(result,"Down");
